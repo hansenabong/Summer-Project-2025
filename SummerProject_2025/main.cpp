@@ -4,27 +4,32 @@ int main()
 {
     //------------------------INITIALIZATION-------------------------
     
-    sf::RenderWindow window(sf::VideoMode({ 1024, 1024 }), "SFML window");
-    sf::ContextSettings settings;
-    settings.antiAliasingLevel = 9;
-    sf::CircleShape shape(50.0f);
-    sf::CircleShape shape2(50.0f);
+    sf::RenderWindow window(sf::VideoMode({ 1920, 1080 }), "SFML window");
+
     //define a 120x50 rectangle
     //sf::RectangleShape rectangle({ 800.0f, 2.0f});
+    /*
     sf::RectangleShape box({ 120.f, 50.f });
     box.setPosition(sf::Vector2f(400, 350));
     shape.setPosition({ 700, 300 });
     shape2.setPosition({ 0, 300 });
     box.setRotation(sf::degrees(30));
     box.setOrigin(sf::Vector2f(box.getSize() / 2.0f));
-
+    sf::ContextSettings settings;
+    settings.antiAliasingLevel = 9;
+    sf::CircleShape shape(50.0f);
+    sf::CircleShape shape2(50.0f);
     sf::Angle rotation = box.getRotation();
     sf::Vector2f velocity(0.05f, 0.f);
-    sf::Vector2f point = {3.0f, 2.0f};  
+    sf::Vector2f point = {3.0f, 2.0f}; */
+    
+
+    //----------------LOAD---------------------------------------------
     sf::Texture texture("assets/player/textures/lizard.png");
     sf::Sprite playerSprite(texture);
     playerSprite.setTextureRect(sf::IntRect({ 0, 0 }, { 340, 1024}));
     playerSprite.setScale(sf::Vector2f{ 0.25f, 0.25f });
+    //----------------LOAD---------------------------------------------
     
     
 
@@ -74,6 +79,9 @@ int main()
                 window.close();
             
         }
+        //-------------------------ENEMY----------------------------------------------
+        //-------------------------ENEMY----------------------------------------------
+        //-------------------------PLAYER----------------------------------------------
         sf::Vector2f playerPosition = playerSprite.getPosition();
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Scancode::D)) {
             
@@ -88,24 +96,28 @@ int main()
         else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Scancode::W)) {
             playerSprite.setPosition(playerPosition + sf::Vector2f{ 0, -0.2f });
         }
+        //-------------------------PLAYER----------------------------------------------
         //--------------------UPDATE----------------------
         
-        sf::FloatRect leftCircleBounds = shape2.getGlobalBounds();
-        sf::FloatRect rightCircleBounds = shape.getGlobalBounds();
+        
 
         
         //box.rotate(sf::degrees(0.03f));
+        /*
+        sf::FloatRect leftCircleBounds = shape2.getGlobalBounds();
+        sf::FloatRect rightCircleBounds = shape.getGlobalBounds();
         box.move(velocity);
         sf::FloatRect boxBounds = box.getGlobalBounds();
         if (boxBounds.findIntersection(leftCircleBounds) || boxBounds.findIntersection(rightCircleBounds)) {
             velocity.x *= -1.f; // bounce!
-        }
+        }*/
+        
         // Clear the whole window before rendering a new frame
         //---------------------DRAW-----------------------
-        window.clear();
         /*window.draw(shape2);
         window.draw(box);
         window.draw(shape);*/
+        window.clear();
         window.draw(playerSprite);
         window.display();
         //---------------------DRAW-----------------------
