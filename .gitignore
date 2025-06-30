@@ -1,0 +1,28 @@
+# Ignore Visual Studio folders
+.vs/
+x64/
+Debug/
+Release/
+
+# Ignore build artifacts
+*.exe
+*.obj
+*.pdb
+*.ilk
+*.sdf
+*.VC.db
+*.ipch
+*.log
+
+# CMake if you use it
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# Backup files
+*.bak
+*.tmp
+*.user
+*.opensdf
+*.cache
